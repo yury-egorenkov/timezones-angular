@@ -146,8 +146,11 @@ body {
 }
 
 .timezone {
-  float: left;
-  &:not(:first-child) {
-    margin-left: 20px;    
-  }
+  float: left; 
+  margin-top: 20px;
+  margin-left: 20px;    
+}
+
+.timezones {
+  margin-left: -20px;  
 }

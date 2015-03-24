@@ -15,7 +15,7 @@ angular.module('timezonesApp')
       'Karma'
     ];
 
-    $scope.showLogin = true;
+    $scope.showLogin = false;
     $scope.editClock = false;
     $scope.clockToEdit = null;    
     $scope.zone = "";
