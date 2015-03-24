@@ -1,0 +1,63 @@
+<div class="wrapper ng-hide" ng-show="showLogin">
+  <form class="form-signin">       
+    <h2 class="form-signin-heading">Please login</h2>
+    <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" ng-model='credentials.username'/>
+    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+    <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signIn()">Login</button>   
+  </form>
+</div>
+
+<div class="timezones" ng-show="!showLogin">
+  <div class="container">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="timezone">Time Zone</label>
+        <input id="timezone" class="form-control" placeholder="Enter time zone. Example: -3" ng-model="zone">
+      </div>
+      <div class="form-group">
+        <label for="name">City name</label>
+        <input class="form-control" id="name" placeholder="Enter city name. Example: Moscow" ng-model="name">
+      </div>      
+      <button class="btn btn-success" ng-click="addTimeZone()" ng-show="!editClock">
+        Add time zone
+      </button> 
+      <button class="btn btn-warning" ng-click="updateTimeZone()" ng-show="editClock">
+        Save
+      </button>
+      <button class="btn btn-default" ng-click="cancelUpdateTimeZone()" ng-show="editClock">
+        Cancel
+      </button>       
+    </div>
+  </div>
+  <br/>
+  <div class="container">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="search">Search</label>
+        <input id="search" class="form-control" ng-model="query">
+      </div>      
+    </div>
+  </div>
+  <br/>
+  <div class="container">
+    <div class="col-xs-12">
+      <div ng-repeat="clock in clocks | filter:query" class="timezone">
+        <div>
+          Current local time: {{clock.time}}
+        </div>
+        <div>
+          Time zone: {{clock.zone}}
+        </div>
+        <div>
+          Location name: {{clock.name}}
+        </div>
+        <button class="btn btn-default" ng-click="edit(clock)">
+          Edit
+        </button> 
+        <button class="btn btn-danger" ng-click="delete(clock)">
+          Delete
+        </button> 
+      </div>
+    </div>
+  </div>  
+</div>
